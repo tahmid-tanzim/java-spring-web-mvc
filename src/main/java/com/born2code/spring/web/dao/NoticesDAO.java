@@ -24,7 +24,7 @@ public class NoticesDAO {
         System.out.println("Creating NoticesDAO!");
     }
 
-//    @Autowired
+    @Autowired
     public void setDataSource(DataSource jdbc) {
         this.jdbc = new NamedParameterJdbcTemplate(jdbc);
     }
@@ -35,17 +35,14 @@ public class NoticesDAO {
 
             public Notice mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Notice notice = new Notice();
-
                 notice.setId(rs.getInt("id"));
                 notice.setName(rs.getString("name"));
                 notice.setEmail(rs.getString("email"));
                 notice.setText(rs.getString("text"));
-
                 return notice;
             }
 
         });
-
     }
 
     public boolean delete(int id) {
