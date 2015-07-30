@@ -35,6 +35,9 @@
     </listener>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/dao-context.xml</param-value>
+        <param-value>
+            /WEB-INF/config/dao-context.xml
+            /WEB-INF/config/service-context.xml
+        </param-value>
     </context-param>
 </web-app>

@@ -20,9 +20,9 @@ public class NoticesDAO {
 
     private NamedParameterJdbcTemplate jdbc;
 
-    public NoticesDAO() {
-        System.out.println("Creating NoticesDAO!");
-    }
+//    public NoticesDAO() {
+//        System.out.println("Creating NoticesDAO!");
+//    }
 
     @Autowired
     public void setDataSource(DataSource jdbc) {
