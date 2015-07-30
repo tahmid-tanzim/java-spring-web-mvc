@@ -12,6 +12,25 @@
     <title></title>
 </head>
 <body>
- Under Construction
+<form method="get" action="${pageContext.request.contextPath}/docreate">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input name="name" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input name="email" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Notice:</td>
+            <td><textarea name="text" rows="10" cols="10"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input name="Create Notice" type="submit"/></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
