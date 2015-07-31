@@ -47,11 +47,7 @@ public class NoticesController {
     @RequestMapping(value="/docreate", method = RequestMethod.POST)
     public String doCreate(Model model, @Valid Notice notice, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            List<ObjectError> errors = bindingResult.getAllErrors();
-            for (ObjectError err : errors) {
-                System.out.print(err.getDefaultMessage());
-            }
-            return "createnotice";
+           return "createnotice";
         }
         return "noticecreated";
     }

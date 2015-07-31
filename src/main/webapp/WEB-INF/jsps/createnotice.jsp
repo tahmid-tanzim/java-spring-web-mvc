@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Create Notice</title>
-    <%--<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />--%>
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="container">
@@ -18,14 +18,17 @@
         <div class="form-group">
             <label for="inputName">Name: </label>
             <sf:input type="text" path="name" name="name" class="form-control" id="inputName" placeholder="Name" />
+            <sf:errors path="name" cssClass="alert-danger"></sf:errors>
         </div>
         <div class="form-group">
             <label for="inputEmail">Email: </label>
             <sf:input type="email" path="email" name="email" class="form-control" id="inputEmail" placeholder="Email" />
+            <sf:errors path="email" cssClass="alert-danger"></sf:errors>
         </div>
         <div class="form-group">
             <label for="inputNotice">Notice: </label>
             <sf:textarea name="text" path="text" rows="10" cols="20" class="form-control" id="inputNotice"></sf:textarea>
+            <sf:errors path="text" cssClass="alert-danger"></sf:errors>
         </div>
         <button type="submit" class="btn btn-default">Create Notice</button>
     </sf:form>
