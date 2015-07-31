@@ -39,7 +39,8 @@ public class NoticesController {
     }
 
     @RequestMapping("/createnotice")
-    public String createNotice() {
+    public String createNotice(Model model) {
+        model.addAttribute(new Notice());
         return "createnotice";
     }
 
@@ -50,9 +51,7 @@ public class NoticesController {
             for (ObjectError err : errors) {
                 System.out.print(err.getDefaultMessage());
             }
-        } else {
-            System.out.print("Form Validated");
-            System.out.println(notice);
+            return "createnotice";
         }
         return "noticecreated";
     }

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Create Notice</title>
@@ -14,21 +14,21 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="${pageContext.request.contextPath}/docreate">
+    <sf:form method="post" action="${pageContext.request.contextPath}/docreate" commandName="notice">
         <div class="form-group">
             <label for="inputName">Name: </label>
-            <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
+            <sf:input type="text" path="name" name="name" class="form-control" id="inputName" placeholder="Name" />
         </div>
         <div class="form-group">
             <label for="inputEmail">Email: </label>
-            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+            <sf:input type="email" path="email" name="email" class="form-control" id="inputEmail" placeholder="Email" />
         </div>
         <div class="form-group">
             <label for="inputNotice">Notice: </label>
-            <textarea name="text" rows="10" cols="20" class="form-control" id="inputNotice"></textarea>
+            <sf:textarea name="text" path="text" rows="10" cols="20" class="form-control" id="inputNotice"></sf:textarea>
         </div>
         <button type="submit" class="btn btn-default">Create Notice</button>
-    </form>
+    </sf:form>
 </div>
 </body>
 </html>
