@@ -1,14 +1,21 @@
 package com.born2code.spring.web.dao;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Notice {
     private int id;
-    @Size(min = 4, max = 100)
-    private String name;
-    private String email;
-    private String text;
 
+    @Size(min = 4, max = 100, message = "Name must be between 5 and 100 characters.")
+    private String name;
+
+    @NotNull
+    @Pattern(regexp = ".*\\@.*\\..*", message = "Not a valid Email Address." )
+    private String email;
+
+    @Size(min = 5, max = 255, message = "Text must be between 6 and 255 characters.")
+    private String text;
 
     public Notice() {
 
