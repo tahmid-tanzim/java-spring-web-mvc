@@ -10,10 +10,28 @@
 <html>
 <head>
     <title></title>
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet"
+          type="text/css"/>
 </head>
 <body>
-<c:forEach var="notice" items="${notices}">
-    <p><c:out value="${notice}"></c:out></p>
-</c:forEach>
+<div class="col-md-8 col-md-offset-2">
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Notice</th>
+        </tr>
+        <c:forEach var="notice" items="${notices}">
+            <tr>
+                <td><c:out value="${notice.id}"></c:out></td>
+                <td><c:out value="${notice.name}"></c:out></td>
+                <td><c:out value="${notice.email}"></c:out></td>
+                <td><c:out value="${notice.text}"></c:out></td>
+            </tr>
+            <%--<p><c:out value="${notice}"></c:out></p>--%>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

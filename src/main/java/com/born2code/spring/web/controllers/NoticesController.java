@@ -49,6 +49,7 @@ public class NoticesController {
         if (bindingResult.hasErrors()) {
            return "createnotice";
         }
+        noticesService.create(notice);
         return "noticecreated";
     }
 }

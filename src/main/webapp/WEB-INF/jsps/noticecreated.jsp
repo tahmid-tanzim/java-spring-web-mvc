@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
- Notice Created
+ Notice Created. <a href="${pageContext.request.contextPath}/notices">All Current Notices</a>
 </body>
 </html>

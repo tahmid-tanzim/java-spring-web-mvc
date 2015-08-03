@@ -19,4 +19,8 @@ public class NoticesService {
     public List<Notice> getCurrent() {
         return noticesDAO.getNotices();
     }
+
+    public void create(Notice notice) {
+        noticesDAO.create(notice);
+    }
 }
