@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="inputEmail">Email: </label>
-            <sf:input type="email" path="email" name="email" class="form-control" id="inputEmail" placeholder="Email" />
+            <sf:input type="text" path="email" name="email" class="form-control" id="inputEmail" placeholder="Email" />
             <sf:errors path="email" cssClass="alert-danger"></sf:errors>
         </div>
         <div class="form-group">
