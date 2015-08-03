@@ -3,10 +3,12 @@ package com.born2code.spring.web.controllers;
 import com.born2code.spring.web.dao.Notice;
 import com.born2code.spring.web.service.NoticesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,8 +33,14 @@ public class NoticesController {
         return "notices";
     }
 
+//    @ExceptionHandler(DataAccessException.class)
+//    public String handleDatabaseException(DataAccessException ex){
+//        return "error";
+//    }
+
     @RequestMapping("/notices")
     public String showNotice(Model model) {
+//        noticesService.throwTextException();
         List<Notice> notices = noticesService.getCurrent();
         model.addAttribute("notices", notices);
         return "notices";

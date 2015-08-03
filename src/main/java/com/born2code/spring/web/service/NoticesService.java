@@ -23,4 +23,8 @@ public class NoticesService {
     public void create(Notice notice) {
         noticesDAO.create(notice);
     }
+
+    public void throwTextException() {
+        noticesDAO.getNotice(4569);
+    }
 }
