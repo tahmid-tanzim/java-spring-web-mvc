@@ -7,7 +7,7 @@
           type="text/css"/>
 </head>
 <body>
-<div class="container">
+<div class="col-md-4 col-md-offset-4">
     <h4>Create Notice</h4>
     <sf:form method="post" action="${pageContext.request.contextPath}/docreate" commandName="notice">
         <div class="form-group">

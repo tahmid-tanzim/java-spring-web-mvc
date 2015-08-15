@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Login Page</title>
@@ -11,6 +12,9 @@
           method='POST'>
         <fieldset>
             <legend>Login</legend>
+            <c:if test="${param.error != null && param.error == 'true'}">
+                <div class="alert alert-danger">Incorrect Username or Password provided.</div>
+            </c:if>
             <div class="control-group">
                 <label class="control-label" for="j_username">Username</label>
 
