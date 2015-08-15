@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tanzim
-  Date: 7/30/15
-  Time: 3:35 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <html>
@@ -15,6 +8,7 @@
 </head>
 <body>
 <div class="container">
+    <h4>Create Notice</h4>
     <sf:form method="post" action="${pageContext.request.contextPath}/docreate" commandName="notice">
         <div class="form-group">
             <label for="inputName">Name: </label>
@@ -32,7 +26,7 @@
                          id="inputNotice"></sf:textarea>
             <sf:errors path="text" cssClass="alert-danger"></sf:errors>
         </div>
-        <button type="submit" class="btn btn-default">Create Notice</button>
+        <button type="submit" class="btn btn-success">Create Notice</button>
     </sf:form>
 </div>
 </body>

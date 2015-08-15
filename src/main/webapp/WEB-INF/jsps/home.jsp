@@ -7,10 +7,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>Home</title>
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet"
+          type="text/css"/>
 </head>
 <body>
-<p>Java Spring Framework</p>
+<h3>Java Spring Framework</h3>
 <%--<sql:query var="rs" dataSource="jdbc/spring">--%>
 <%--SELECT id, name, email, text FROM notices--%>
 <%--</sql:query>--%>
@@ -20,9 +22,10 @@
 <%--Email: ${row.email}<br/>--%>
 <%--</c:forEach>--%>
 
-<p><a href="${pageContext.request.contextPath}/notices">Show Notices</a></p>
+<p><a href="${pageContext.request.contextPath}/notices" type="button" class="btn btn-primary">Show Notices</a></p>
 
-<p><a href="${pageContext.request.contextPath}/createnotice">Create Notices</a></p>
+<p><a href="${pageContext.request.contextPath}/createnotice" type="button" class="btn btn-primary">Create Notices</a>
+</p>
 
 
 </body>
