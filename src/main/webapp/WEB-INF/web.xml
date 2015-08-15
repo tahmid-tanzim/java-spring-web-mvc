@@ -4,8 +4,9 @@
          id="WebApp_ID" version="2.5">
     <display-name>springwebtest</display-name>
     <filter>
+        <display-name>springSecurityFilterChain</display-name>
         <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>com.born2code.spring.web.filter.DelegatingFilterProxy</filter-class>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>

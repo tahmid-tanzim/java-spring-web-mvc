@@ -21,6 +21,7 @@
 <%--</c:forEach>--%>
 
 <p><a href="${pageContext.request.contextPath}/notices">Show Notices</a></p>
+
 <p><a href="${pageContext.request.contextPath}/createnotice">Create Notices</a></p>
 
 

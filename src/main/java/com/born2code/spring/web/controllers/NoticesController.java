@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.validation.Valid;
 import java.util.List;
 
@@ -52,10 +53,10 @@ public class NoticesController {
         return "createnotice";
     }
 
-    @RequestMapping(value="/docreate", method = RequestMethod.POST)
+    @RequestMapping(value = "/docreate", method = RequestMethod.POST)
     public String doCreate(Model model, @Valid Notice notice, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-           return "createnotice";
+            return "createnotice";
         }
         noticesService.create(notice);
         return "noticecreated";
