@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `authorities` (
-  `username` varchar(60) CHARACTER SET latin1 NOT NULL,
-  `authority` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
+  `username` varchar(60) NOT NULL,
+  `authority` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -47,9 +47,9 @@ INSERT INTO `authorities` (`username`, `authority`) VALUES
 
 CREATE TABLE IF NOT EXISTS `notices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
-  `text` text CHARACTER SET latin1,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `text` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -68,8 +68,9 @@ INSERT INTO `notices` (`id`, `name`, `email`, `text`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `username` varchar(60) CHARACTER SET latin1 NOT NULL,
-  `password` varchar(80) CHARACTER SET latin1 DEFAULT NULL,
+  `username` varchar(60) NOT NULL,
+  `password` varchar(80) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
