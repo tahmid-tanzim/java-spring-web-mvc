@@ -4,6 +4,8 @@ import com.born2code.spring.web.dao.Notice;
 import com.born2code.spring.web.dao.User;
 import com.born2code.spring.web.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,9 +40,20 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             return "newaccount";
         }
+
+        if (usersService.exists(user.getUsername())) {
+            bindingResult.rejectValue("username", "Duplicatekey.user.username", "This username already exists. Please choose another username.");
+            return "newaccount";
+        }
+
         user.setAuthority("user");
         user.setEnabled(true);
-        usersService.create(user);
+        try {
+            usersService.create(user);
+        } catch (DuplicateKeyException ex) {
+            bindingResult.rejectValue("username", "Duplicatekey.user.username", "This username already exists");
+            return "newaccount";
+        }
         return "accountcreated";
     }
 }

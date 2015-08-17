@@ -21,8 +21,12 @@ public class UsersDao {
     public boolean create(User user) {
         BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
         // User Table insert
-        jdbc.update("insert into users (username, password, email, enabled) values (:username, :password, :email, :enabled)", params);
+        jdbc.update("INSERT INTO users (username, password, email, enabled) VALUES (:username, :password, :email, :enabled)", params);
         // Authority Table insert
-        return jdbc.update("insert into authorities (username, authority) values (:username, :authority)", params) == 1;
+        return jdbc.update("INSERT INTO authorities (username, authority) VALUES (:username, :authority)", params) == 1;
+    }
+
+    public boolean exists(String username) {
+        return jdbc.queryForObject("SELECT COUNT(*) FROM users WHERE username=:username", new MapSqlParameterSource("username", username), Integer.class) > 0;
     }
 }

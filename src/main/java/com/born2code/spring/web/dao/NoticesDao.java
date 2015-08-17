@@ -31,7 +31,7 @@ public class NoticesDao {
 
     public List<Notice> getNotices() {
 
-        return jdbc.query("select * from notices", new RowMapper<Notice>() {
+        return jdbc.query("SELECT * FROM notices", new RowMapper<Notice>() {
 
             public Notice mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Notice notice = new Notice();
@@ -50,7 +50,7 @@ public class NoticesDao {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
 
-        return jdbc.update("delete from notices where id = :id", params) == 1;
+        return jdbc.update("DELETE FROM notices WHERE id = :id", params) == 1;
 
     }
 
@@ -58,14 +58,14 @@ public class NoticesDao {
 
         BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(notice);
 
-        return jdbc.update("update notices set name=:name, email=:email, text=:text where id=:id", params) == 1;
+        return jdbc.update("UPDATE notices SET name=:name, email=:email, text=:text WHERE id=:id", params) == 1;
     }
 
     public int[] create(List<Notice> notices) {
 
         SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(notices.toArray());
 
-        return jdbc.batchUpdate("insert into notices (name, email, text) values (:name, :email, :text)", params);
+        return jdbc.batchUpdate("INSERT INTO notices (name, email, text) VALUES (:name, :email, :text)", params);
     }
 
 
@@ -73,7 +73,7 @@ public class NoticesDao {
 
         BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(notice);
 
-        return jdbc.update("insert into notices (name, email, text) values (:name, :email, :text)", params) == 1;
+        return jdbc.update("INSERT INTO notices (name, email, text) VALUES (:name, :email, :text)", params) == 1;
     }
 
     public Notice getNotice(int id) {
@@ -81,18 +81,16 @@ public class NoticesDao {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
 
-        return jdbc.queryForObject("select * from notices where id = :id",
+        return jdbc.queryForObject("SELECT * FROM notices WHERE id = :id",
                 params, new RowMapper<Notice>() {
 
                     public Notice mapRow(ResultSet rs, int rowNum)
                             throws SQLException {
                         Notice notice = new Notice();
-
                         notice.setId(rs.getInt("id"));
                         notice.setName(rs.getString("name"));
                         notice.setEmail(rs.getString("email"));
                         notice.setText(rs.getString("text"));
-
                         return notice;
                     }
 
