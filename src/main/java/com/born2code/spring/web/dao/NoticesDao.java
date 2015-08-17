@@ -16,12 +16,12 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 
 @Component("noticesDao")
-public class NoticesDAO {
+public class NoticesDao {
 
     private NamedParameterJdbcTemplate jdbc;
 
-//    public NoticesDAO() {
-//        System.out.println("Creating NoticesDAO!");
+//    public NoticesDao() {
+//        System.out.println("Creating NoticesDao!");
 //    }
 
     @Autowired

@@ -1,7 +1,7 @@
 package com.born2code.spring.web.service;
 
 import com.born2code.spring.web.dao.Notice;
-import com.born2code.spring.web.dao.NoticesDAO;
+import com.born2code.spring.web.dao.NoticesDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,22 +9,22 @@ import java.util.List;
 
 @Service("noticesService")
 public class NoticesService {
-    private NoticesDAO noticesDAO;
+    private NoticesDao noticesDao;
 
     @Autowired
-    public void setNoticesDAO(NoticesDAO noticesDAO) {
-        this.noticesDAO = noticesDAO;
+    public void setNoticesDao(NoticesDao noticesDao) {
+        this.noticesDao = noticesDao;
     }
 
     public List<Notice> getCurrent() {
-        return noticesDAO.getNotices();
+        return noticesDao.getNotices();
     }
 
     public void create(Notice notice) {
-        noticesDAO.create(notice);
+        noticesDao.create(notice);
     }
 
     public void throwTextException() {
-        noticesDAO.getNotice(4569);
+        noticesDao.getNotice(4569);
     }
 }
