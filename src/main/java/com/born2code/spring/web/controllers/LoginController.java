@@ -36,7 +36,7 @@ public class LoginController {
     @RequestMapping(value = "/createaccount", method = RequestMethod.POST)
     public String doCreate(@Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "createaccount";
+            return "newaccount";
         }
         user.setAuthority("user");
         user.setEnabled(true);
