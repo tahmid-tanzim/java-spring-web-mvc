@@ -23,6 +23,7 @@
         <security:intercept-url pattern="/createnotice" access="isAuthenticated()"/>
         <security:intercept-url pattern="/docreate" access="isAuthenticated()"/>
         <security:intercept-url pattern="/" access="permitAll"/>
+        <security:intercept-url pattern="/signout" access="permitAll"/>
         <security:intercept-url pattern="/newaccount" access="permitAll"/>
         <security:intercept-url pattern="/createaccount" access="permitAll"/>
         <security:intercept-url pattern="/accountcreated" access="permitAll"/>
@@ -30,5 +31,6 @@
         <security:intercept-url pattern="/notices" access="permitAll"/>
         <security:intercept-url pattern="/favicon.ico" access="permitAll"/>
         <security:intercept-url pattern="/**" access="denyAll"/>
+        <security:logout logout-success-url="/signout"></security:logout>
     </security:http>
 </beans>

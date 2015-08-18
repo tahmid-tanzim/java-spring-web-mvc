@@ -27,6 +27,7 @@
 <p><a href="${pageContext.request.contextPath}/createnotice" type="button" class="btn btn-primary">Create Notices</a>
 </p>
 
-
+<p><a href="<c:url value='/j_spring_security_logout' />" type="button" class="btn btn-primary">Log out</a>
+</p>
 </body>
 </html>

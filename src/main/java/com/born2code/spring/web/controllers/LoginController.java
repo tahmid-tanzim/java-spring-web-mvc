@@ -28,6 +28,11 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping("/signout")
+    public String showSignout() {
+        return "logout";
+    }
+
     @RequestMapping("/newaccount")
     public String showNewAccount(Model model) {
         model.addAttribute("user", new User());

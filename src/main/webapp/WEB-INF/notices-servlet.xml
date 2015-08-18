@@ -21,6 +21,8 @@
 
     <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="com.born2code.spring.web.message.message"></property>
+        <property name="basename">
+            <value>com/born2code/spring/web/message/message</value>
+        </property>
     </bean>
 </beans>
