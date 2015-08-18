@@ -1,6 +1,5 @@
 package com.born2code.spring.web.controllers;
 
-import com.born2code.spring.web.dao.Notice;
 import com.born2code.spring.web.dao.User;
 import com.born2code.spring.web.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,7 @@ public class LoginController {
         }
 
         if (usersService.exists(user.getUsername())) {
-            bindingResult.rejectValue("username", "Duplicatekey.user.username", "This username already exists. Please choose another username.");
+            bindingResult.rejectValue("username", "DuplicateKey.user.username", "This username already exists. Please choose another username.");
             return "newaccount";
         }
 
@@ -51,7 +50,7 @@ public class LoginController {
         try {
             usersService.create(user);
         } catch (DuplicateKeyException ex) {
-            bindingResult.rejectValue("username", "Duplicatekey.user.username", "This username already exists");
+            bindingResult.rejectValue("username", "DuplicateKey.user.username", "This username already exists. Please choose another username.");
             return "newaccount";
         }
         return "accountcreated";

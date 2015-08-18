@@ -9,7 +9,7 @@
 <body>
 <div class="col-md-4 col-md-offset-4">
     <h4>Create User</h4>
-    <sf:form method="post" action="${pageContext.request.contextPath}/createaccount" commandName="user">
+    <sf:form method="post" action="${pageContext.request.contextPath}/createaccount" commandName="user" id="userForm">
         <div class="form-group">
             <label for="inputusername">Username: </label>
             <sf:input type="text" path="username" name="username" class="form-control" id="inputusername"
@@ -37,5 +37,30 @@
         <button type="submit" class="btn btn-success">Create User</button>
     </sf:form>
 </div>
+<script>
+    var password1 = document.getElementById('inputPassword');
+    var password2 = document.getElementById('inputConfirmPassword');
+
+    var checkPasswordValidity = function () {
+        if (password1.value != password2.value) {
+            password1.setCustomValidity('Passwords must match.');
+        } else {
+            password1.setCustomValidity('');
+        }
+    };
+
+    password1.addEventListener('change', checkPasswordValidity, false);
+    password2.addEventListener('change', checkPasswordValidity, false);
+
+    var form = document.getElementById('userForm');
+    form.addEventListener('submit', function () {
+        checkPasswordValidity();
+        if (!this.checkValidity()) {
+            event.preventDefault();
+            //Implement you own means of displaying error messages to the user here.
+            password1.focus();
+        }
+    }, false);
+</script>
 </body>
 </html>
