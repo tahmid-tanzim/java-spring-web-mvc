@@ -6,6 +6,8 @@
           type="text/css"/>
 </head>
 <body>
-Notice Created. <a href="${pageContext.request.contextPath}/notices">All Current Notices</a>
+<p>Notice Created.</p>
+<a href="${pageContext.request.contextPath}/notices" type="button" class="btn btn-primary">All Current Notices</a>
+<a href="${pageContext.request.contextPath}/" type="button" class="btn btn-primary">Back</a>
 </body>
 </html>

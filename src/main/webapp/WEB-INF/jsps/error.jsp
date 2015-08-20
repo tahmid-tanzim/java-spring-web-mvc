@@ -4,6 +4,7 @@
     <title>Error</title>
 </head>
 <body>
-A Database Error occurred. Please check you database connection or try again later.
+<p>A Database Error occurred. Please check you database connection or try again later.</p>
+<a href="${pageContext.request.contextPath}/" type="button" class="btn btn-primary">Back</a>
 </body>
 </html>

@@ -13,37 +13,40 @@
           type="text/css"/>
 </head>
 <body>
-<h3>Java Spring Framework</h3>
-<%--<sql:query var="rs" dataSource="jdbc/spring">--%>
-<%--SELECT id, name, email, text FROM notices--%>
-<%--</sql:query>--%>
-<%--<c:forEach var="row" items="${rs.rows}">--%>
-<%--ID: ${row.id}<br/>--%>
-<%--Name: ${row.name}<br/>--%>
-<%--Email: ${row.email}<br/>--%>
-<%--</c:forEach>--%>
+<div class="col-md-10 col-md-offset-1">
+    <h3>Java Spring Framework</h3>
+    <%--<sql:query var="rs" dataSource="jdbc/spring">--%>
+    <%--SELECT id, name, email, text FROM notices--%>
+    <%--</sql:query>--%>
+    <%--<c:forEach var="row" items="${rs.rows}">--%>
+    <%--ID: ${row.id}<br/>--%>
+    <%--Name: ${row.name}<br/>--%>
+    <%--Email: ${row.email}<br/>--%>
+    <%--</c:forEach>--%>
 
-<p>
-    <a href="${pageContext.request.contextPath}/notices" type="button" class="btn btn-primary">Show Notices</a>
-</p>
+    <p>
+        <a href="${pageContext.request.contextPath}/notices" type="button" class="btn btn-primary">Show Notices</a>
+    </p>
 
-<p>
-    <a href="${pageContext.request.contextPath}/createnotice" type="button" class="btn btn-primary">Create Notices</a>
-</p>
-<sec:authorize access="!isAuthenticated()">
     <p>
-        <a href="<c:url value='/login' />" type="button" class="btn btn-primary">Log in</a>
+        <a href="${pageContext.request.contextPath}/createnotice" type="button" class="btn btn-primary">Create
+            Notices</a>
     </p>
-</sec:authorize>
-<sec:authorize access="isAuthenticated()">
-    <p>
-        <a href="<c:url value='/j_spring_security_logout' />" type="button" class="btn btn-primary">Log out</a>
-    </p>
-</sec:authorize>
-<sec:authorize access="hasRole('admin')">
-    <p>
-        <a href="<c:url value='/admin' />" type="button" class="btn btn-primary">Admin Page</a>
-    </p>
-</sec:authorize>
+    <sec:authorize access="!isAuthenticated()">
+        <p>
+            <a href="<c:url value='/login' />" type="button" class="btn btn-primary">Log in</a>
+        </p>
+    </sec:authorize>
+    <sec:authorize access="isAuthenticated()">
+        <p>
+            <a href="<c:url value='/j_spring_security_logout' />" type="button" class="btn btn-primary">Log out</a>
+        </p>
+    </sec:authorize>
+    <sec:authorize access="hasRole('admin')">
+        <p>
+            <a href="<c:url value='/admin' />" type="button" class="btn btn-primary">Admin Page</a>
+        </p>
+    </sec:authorize>
+</div>
 </body>
 </html>

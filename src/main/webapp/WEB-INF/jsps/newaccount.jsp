@@ -35,6 +35,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">Create User</button>
+        <a href="${pageContext.request.contextPath}/" type="button" class="btn btn-primary">Back to Home</a>
     </sf:form>
 </div>
 <script>

@@ -11,6 +11,7 @@
   <title>Logout</title>
 </head>
 <body>
-You have logged out
+<p>You have logged out</p>
+<a href="${pageContext.request.contextPath}/" type="button" class="btn btn-primary">Back to Home</a>
 </body>
 </html>

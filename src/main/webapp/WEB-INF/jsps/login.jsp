@@ -40,7 +40,10 @@
             </div>
         </fieldset>
     </form>
-    <p><a href="<c:url value='/newaccount' />">Create new account</a></p>
+    <p>
+        <a href="<c:url value='/newaccount' />" type="button" class="btn btn-success">Create new account</a>
+        <a href="${pageContext.request.contextPath}/" type="button" class="btn btn-default">Back to Home</a>
+    </p>
 </div>
 </body>
 </html>

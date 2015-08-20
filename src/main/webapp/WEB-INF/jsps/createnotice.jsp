@@ -27,6 +27,7 @@
             <sf:errors path="text" cssClass="alert-danger"></sf:errors>
         </div>
         <button type="submit" class="btn btn-success">Create Notice</button>
+        <a href="${pageContext.request.contextPath}/" type="button" class="btn btn-primary">Back to Home</a>
     </sf:form>
 </div>
 </body>
