@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -59,5 +60,12 @@ public class LoginController {
             return "newaccount";
         }
         return "accountcreated";
+    }
+
+    @RequestMapping("/admin")
+    public String showAdmin(Model model) {
+        List<User> users = usersService.getAllUsers();
+        model.addAttribute("users", users);
+        return "admin";
     }
 }

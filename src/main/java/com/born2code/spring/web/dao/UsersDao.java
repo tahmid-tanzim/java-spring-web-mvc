@@ -1,11 +1,13 @@
 package com.born2code.spring.web.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 @Component("usersDao")
 public class UsersDao {
@@ -28,5 +30,9 @@ public class UsersDao {
 
     public boolean exists(String username) {
         return jdbc.queryForObject("SELECT COUNT(*) FROM users WHERE username=:username", new MapSqlParameterSource("username", username), Integer.class) > 0;
+    }
+
+    public List<User> getAllUsers() {
+        return jdbc.query("SELECT * FROM users, authorities WHERE users.username = authorities.username", BeanPropertyRowMapper.newInstance(User.class));
     }
 }
