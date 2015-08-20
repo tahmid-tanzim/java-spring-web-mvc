@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%--<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -22,15 +23,27 @@
 <%--Email: ${row.email}<br/>--%>
 <%--</c:forEach>--%>
 
-<p><a href="${pageContext.request.contextPath}/notices" type="button" class="btn btn-primary">Show Notices</a></p>
-
-<p><a href="${pageContext.request.contextPath}/createnotice" type="button" class="btn btn-primary">Create Notices</a>
+<p>
+    <a href="${pageContext.request.contextPath}/notices" type="button" class="btn btn-primary">Show Notices</a>
 </p>
 
-<p><a href="<c:url value='/j_spring_security_logout' />" type="button" class="btn btn-primary">Log out</a>
+<p>
+    <a href="${pageContext.request.contextPath}/createnotice" type="button" class="btn btn-primary">Create Notices</a>
 </p>
-
-<p><a href="<c:url value='/admin' />" type="button" class="btn btn-primary">Admin Page</a>
-</p>
+<sec:authorize access="!isAuthenticated()">
+    <p>
+        <a href="<c:url value='/login' />" type="button" class="btn btn-primary">Log in</a>
+    </p>
+</sec:authorize>
+<sec:authorize access="isAuthenticated()">
+    <p>
+        <a href="<c:url value='/j_spring_security_logout' />" type="button" class="btn btn-primary">Log out</a>
+    </p>
+</sec:authorize>
+<sec:authorize access="hasRole('admin')">
+    <p>
+        <a href="<c:url value='/admin' />" type="button" class="btn btn-primary">Admin Page</a>
+    </p>
+</sec:authorize>
 </body>
 </html>
