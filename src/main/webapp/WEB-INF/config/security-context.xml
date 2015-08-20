@@ -18,7 +18,9 @@
     </security:authentication-manager>
 
     <security:http use-expressions="true">
+
         <security:form-login login-page="/login" authentication-failure-url="/login?error=true"/>
+        <security:intercept-url pattern="/admin" access="hasRole('admin')"/>
         <security:intercept-url pattern="/resources/**" access="permitAll"/>
         <security:intercept-url pattern="/createnotice" access="isAuthenticated()"/>
         <security:intercept-url pattern="/docreate" access="isAuthenticated()"/>

@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Error</title>
+    <title>Admin</title>
 </head>
 <body>
-A Database Error occurred. Please check you database connection or try again later.
+You must be an Admin to see this page.
 </body>
 </html>

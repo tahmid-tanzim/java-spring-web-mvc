@@ -29,5 +29,8 @@
 
 <p><a href="<c:url value='/j_spring_security_logout' />" type="button" class="btn btn-primary">Log out</a>
 </p>
+
+<p><a href="<c:url value='/admin' />" type="button" class="btn btn-primary">Admin Page</a>
+</p>
 </body>
 </html>
