@@ -6,16 +6,15 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <security:authentication-manager>
+        <!--<security:authentication-provider>-->
+        <!--<security:user-service>-->
+        <!--<security:user name="tanzim" authorities="ROLE_ADMIN" password="tanzim"/>-->
+        <!--</security:user-service>-->
+        <!--</security:authentication-provider>-->
+        <!--authorities-by-username-query="SELECT * FROM authorities WHERE binary username = ?"-->
+        <!--users-by-username-query="SELECT * FROM users WHERE binary username = ?"-->
         <security:authentication-provider>
-            <security:user-service>
-                <security:user name="tanzim" authorities="admin" password="tanzim"/>
-                <security:user name="lupin" authorities="admin" password="lupin"/>
-            </security:user-service>
-        </security:authentication-provider>
-        <security:authentication-provider>
-            <security:jdbc-user-service data-source-ref="dataSource"
-                                        authorities-by-username-query="SELECT * FROM authorities WHERE BINARY username = ?"
-                                        users-by-username-query="SELECT * FROM users WHERE binary username = ?"/>
+            <security:jdbc-user-service data-source-ref="dataSource"></security:jdbc-user-service>
         </security:authentication-provider>
     </security:authentication-manager>
 

@@ -42,7 +42,7 @@
             <a href="<c:url value='/j_spring_security_logout' />" type="button" class="btn btn-primary">Log out</a>
         </p>
     </sec:authorize>
-    <sec:authorize access="hasRole('admin')">
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
         <p>
             <a href="<c:url value='/admin' />" type="button" class="btn btn-primary">Admin Page</a>
         </p>
