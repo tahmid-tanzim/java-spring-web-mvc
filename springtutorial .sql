@@ -38,7 +38,8 @@ CREATE TABLE IF NOT EXISTS `authorities` (
 
 INSERT INTO `authorities` (`username`, `authority`) VALUES
 ('fatiha', 'ROLE_ADMIN'),
-('lupin', 'ROLE_USER');
+('lupin', 'ROLE_USER'),
+('obin', 'ROLE_USER');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`username`, `password`, `email`,`enabled`) VALUES
 ('fatiha', 'fatiha', 'fatiha@gmail.com', 1),
-('lupin', 'lupin', 'lupin@yahoo.com', 1);
+('lupin', 'lupin', 'lupin@yahoo.com', 1),
+('obin', 'obin', 'obin@live.com', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

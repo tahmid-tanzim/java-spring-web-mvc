@@ -3,6 +3,7 @@ package com.born2code.spring.web.service;
 import com.born2code.spring.web.dao.Notice;
 import com.born2code.spring.web.dao.NoticesDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class NoticesService {
         return noticesDao.getNotices();
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     public void create(Notice notice) {
         noticesDao.create(notice);
     }
