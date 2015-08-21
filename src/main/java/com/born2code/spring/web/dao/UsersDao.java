@@ -3,6 +3,7 @@ package com.born2code.spring.web.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,13 +16,23 @@ public class UsersDao {
     private NamedParameterJdbcTemplate jdbc;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     public void setDataSource(DataSource jdbc) {
         this.jdbc = new NamedParameterJdbcTemplate(jdbc);
     }
 
     @Transactional
     public boolean create(User user) {
-        BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
+//        BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("username", user.getUsername());
+        params.addValue("password", passwordEncoder.encode(user.getPassword()));
+        params.addValue("email", user.getEmail());
+        params.addValue("enabled", user.isEnabled());
+        params.addValue("authority", user.getAuthority());
         // User Table insert
         jdbc.update("INSERT INTO users (username, password, email, enabled) VALUES (:username, :password, :email, :enabled)", params);
         // Authority Table insert

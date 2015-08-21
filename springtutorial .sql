@@ -82,9 +82,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `email`,`enabled`) VALUES
-('fatiha', 'fatiha', 'fatiha@gmail.com', 1),
-('lupin', 'lupin', 'lupin@yahoo.com', 1),
-('obin', 'obin', 'obin@live.com', 1);
+('fatiha', 'f35c314fabec38e90b1e3fc0242d8a14fb32b3261276e282590736bf13fe699a937b47e47c3646ba', 'fatiha@gmail.com', 1),
+('lupin', '22b2a991a55ddb0cf9fc84ee866c5763fe6f9e4957cc9ac68687a2ec4598871a4775e51a5c348dda', 'lupin@yahoo.com', 1),
+('obin', '123d04ebdd92e771308c97eb954c19585ab653c307f20690d4017d5b1cdd314fd4f892ff18d45ba7', 'obin123@live.com', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
