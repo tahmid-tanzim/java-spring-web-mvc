@@ -1,16 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tanzim
-  Date: 8/21/15
-  Time: 7:54 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <html>
 <head>
-    <title>Tiles</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><tiles:getAsString name="title"></tiles:getAsString></title>
 </head>
 <body>
-<p>Hello from tiles ...</p>
+<div>
+    <tiles:insertAttribute name="header"></tiles:insertAttribute>
+</div>
+<div>
+    <tiles:insertAttribute name="content"></tiles:insertAttribute>
+</div>
+<div>
+    <tiles:insertAttribute name="footer"></tiles:insertAttribute>
+</div>
 </body>
 </html>
