@@ -25,6 +25,7 @@
         <security:intercept-url pattern="/resources/**" access="permitAll"/>
         <security:intercept-url pattern="/createnotice" access="isAuthenticated()"/>
         <security:intercept-url pattern="/docreate" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/denied" access="permitAll"/>
         <security:intercept-url pattern="/" access="permitAll"/>
         <security:intercept-url pattern="/signout" access="permitAll"/>
         <security:intercept-url pattern="/newaccount" access="permitAll"/>
@@ -35,6 +36,7 @@
         <security:intercept-url pattern="/favicon.ico" access="permitAll"/>
         <security:intercept-url pattern="/**" access="denyAll"/>
         <security:logout logout-success-url="/signout"></security:logout>
+        <security:access-denied-handler error-page="/denied"></security:access-denied-handler>
     </security:http>
     <security:global-method-security secured-annotations="enabled"></security:global-method-security>
 </beans>

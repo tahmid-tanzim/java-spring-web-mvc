@@ -10,10 +10,10 @@
 <div class="col-md-10 col-md-offset-1">
     <table class="table table-striped">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Notice</th>
+            <th width="5%">ID</th>
+            <th width="15%">Name</th>
+            <th width="30%">Email</th>
+            <th width="50%">Notice</th>
         </tr>
         <c:forEach var="notice" items="${notices}">
             <tr>

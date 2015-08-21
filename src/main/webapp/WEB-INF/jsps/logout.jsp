@@ -8,10 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Logout</title>
+    <title>Logout</title>
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet"
+          type="text/css"/>
 </head>
 <body>
-<p>You have logged out</p>
-<a href="${pageContext.request.contextPath}/" type="button" class="btn btn-primary">Back to Home</a>
+<div class="col-md-4 col-md-offset-4">
+    <div class="alert alert-info" role="alert">
+        <p>You have logged out!</p>
+    </div>
+    <a href="${pageContext.request.contextPath}/" type="button" class="btn btn-primary">Back to Home</a>
+</div>
 </body>
 </html>
