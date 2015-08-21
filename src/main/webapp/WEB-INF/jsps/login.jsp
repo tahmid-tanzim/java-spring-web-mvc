@@ -32,6 +32,11 @@
                 </div>
             </div>
             <div class="control-group">
+                <label class="control-label" for="_spring_security_remember_me">Remember Me</label>
+                <input id="_spring_security_remember_me" name="_spring_security_remember_me" type="checkbox"
+                       checked="checked">
+            </div>
+            <div class="control-group">
                 <label class="control-label" for="singlebutton"></label>
 
                 <div class="controls">
