@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Login</title>
-    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet"
+    <link href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/bootstrap.css" rel="stylesheet"
           type="text/css"/>
 </head>
 <body onload='document.f.j_username.focus();'>

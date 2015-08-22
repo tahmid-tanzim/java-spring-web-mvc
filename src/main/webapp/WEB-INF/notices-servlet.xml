@@ -28,7 +28,7 @@
         </property>
     </bean>
 
-    <mvc:resources mapping="/resources/**" location="/, classpath:/lib/"/>
+    <mvc:resources mapping="/resources/**" location="/, classpath:/public/"/>
 
     <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
