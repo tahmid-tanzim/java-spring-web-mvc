@@ -1,12 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>Login</title>
-    <link href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/bootstrap.css" rel="stylesheet"
-          type="text/css"/>
-</head>
-<body onload='document.f.j_username.focus();'>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#j_username').focus();
+    });
+</script>
 <div class="col-md-6 col-md-offset-3">
     <form class="form-horizontal" name='f' action='${pageContext.request.contextPath}/j_spring_security_check'
           method='POST'>
@@ -43,10 +41,8 @@
             </div>
         </fieldset>
     </form>
-    <p>
-        <a href="<c:url value='/newaccount' />" type="button" class="btn btn-success">Create new account</a>
-        <a href="${pageContext.request.contextPath}/" type="button" class="btn btn-default">Back to Home</a>
-    </p>
+    <div>
+        <a href="<c:url value='/newaccount'></c:url>" type="button" class="btn btn-success">Create New Account</a>
+        <a href="${pageContext.request.contextPath}/" type="button" class="btn btn-default">Back</a>
+    </div>
 </div>
-</body>
-</html>

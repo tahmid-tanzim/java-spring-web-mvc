@@ -19,6 +19,12 @@
 
     <!-- Custom styles for this template -->
     <link href="<c:url value='/resources/css/notices-main.css'></c:url>" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="<c:url value='/resources/js/jquery.min.js'></c:url>"></script>
+    <script src="<c:url value='/resources/lib/bootstrap/js/bootstrap.min.js'></c:url>"></script>
 </head>
 <body>
 <div>
