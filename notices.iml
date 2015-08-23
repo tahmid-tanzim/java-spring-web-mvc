@@ -83,5 +83,6 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.6" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-jcl:1.7.6" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.14" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-test:3.2.11.RELEASE" level="project" />
   </component>
 </module>
