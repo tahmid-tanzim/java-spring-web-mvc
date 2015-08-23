@@ -51,6 +51,7 @@
             /WEB-INF/config/dao-context.xml
             /WEB-INF/config/service-context.xml
             /WEB-INF/config/security-context.xml
+            /WEB-INF/config/datasource.xml
         </param-value>
     </context-param>
     <context-param>
