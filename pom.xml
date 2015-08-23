@@ -118,6 +118,12 @@
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-extras</artifactId>
             <version>3.0.5</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.tiles</groupId>
@@ -131,8 +137,18 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
+            <artifactId>slf4j-api</artifactId>
             <version>1.7.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jcl</artifactId>
+            <version>1.7.6</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
         </dependency>
     </dependencies>
 </project>
