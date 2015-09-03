@@ -25,4 +25,15 @@ public class NoticesService {
     public void create(Notice notice) {
         noticesDao.create(notice);
     }
+
+    public boolean hasNotice(String name) {
+        if(name == null)
+            return false;
+
+        List<Notice> notices = noticesDao.getNotices(name);
+        if(notices.size() == 0)
+            return false;
+
+        return true;
+    }
 }

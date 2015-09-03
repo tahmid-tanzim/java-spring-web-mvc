@@ -30,7 +30,7 @@
 <div>
     <tiles:insertAttribute name="header"></tiles:insertAttribute>
 </div>
-<div class="container">
+<div class="container-fluid">
     <tiles:insertAttribute name="content"></tiles:insertAttribute>
 </div>
 <div>
