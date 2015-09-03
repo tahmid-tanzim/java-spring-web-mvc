@@ -4,6 +4,12 @@
     <h4>Create User</h4>
     <sf:form method="post" action="${pageContext.request.contextPath}/createaccount" commandName="user" id="userForm">
         <div class="form-group">
+            <label for="inputname">Full Name: </label>
+            <sf:input type="text" path="name" name="name" class="form-control" id="inputname"
+                      placeholder="Enter Full Name"/>
+            <sf:errors path="name" cssClass="alert-danger"></sf:errors>
+        </div>
+        <div class="form-group">
             <label for="inputusername">Username: </label>
             <sf:input type="text" path="username" name="username" class="form-control" id="inputusername"
                       placeholder="Enter Username"/>

@@ -4,6 +4,7 @@
     <h3>Authorized users only!</h3>
     <table class="table table-striped">
         <tr>
+            <th>Full Name</th>
             <th>Username</th>
             <th>Email</th>
             <th>Authority</th>
@@ -11,6 +12,7 @@
         </tr>
         <c:forEach var="user" items="${users}">
             <tr>
+                <td><c:out value="${user.name}"></c:out></td>
                 <td><c:out value="${user.username}"></c:out></td>
                 <td><c:out value="${user.email}"></c:out></td>
                 <td><c:out value="${user.authority}"></c:out></td>

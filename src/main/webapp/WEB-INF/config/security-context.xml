@@ -7,9 +7,10 @@
 
     <security:authentication-manager>
         <security:authentication-provider>
-            <!--authorities-by-username-query="SELECT * FROM authorities WHERE binary username = ?"-->
-            <!--users-by-username-query="SELECT * FROM users WHERE binary username = ?"-->
-            <security:jdbc-user-service id="jdbcUserService" data-source-ref="dataSource"></security:jdbc-user-service>
+
+            <security:jdbc-user-service id="jdbcUserService" data-source-ref="dataSource"
+                                        authorities-by-username-query="select username, authority from users where binary username = ?"
+                                        users-by-username-query="select username, password, enabled from users where binary username = ?"></security:jdbc-user-service>
             <security:password-encoder ref="passwordEncoder"></security:password-encoder>
         </security:authentication-provider>
     </security:authentication-manager>
