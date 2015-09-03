@@ -2,6 +2,7 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <div class="col-md-4 col-md-offset-4">
     <h4>Create Notice</h4>
+    <hr/>
     <sf:form method="post" action="${pageContext.request.contextPath}/docreate" commandName="notice">
         <div class="form-group">
             <label for="inputNotice">Notice: </label>
