@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 
@@ -54,10 +55,14 @@ public class NoticesController {
     }
 
     @RequestMapping(value = "/docreate", method = RequestMethod.POST)
-    public String doCreate(Model model, @Valid Notice notice, BindingResult bindingResult) {
+    public String doCreate(Model model, @Valid Notice notice, BindingResult bindingResult, Principal principal) {
         if (bindingResult.hasErrors()) {
             return "createnotice";
         }
+
+        String username = principal.getName();
+        notice.getUser().setUsername(username);
+
         noticesService.create(notice);
         return "noticecreated";
     }

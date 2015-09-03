@@ -11,7 +11,7 @@ public class Notice {
     private String text;
 
     public Notice() {
-
+        this.user = new User();
     }
 
     public Notice(User user, String text) {
@@ -49,8 +49,8 @@ public class Notice {
         this.user = user;
     }
 
-    public int getUserId() {
-        return user.getId();
+    public String getUsername() {
+        return user.getUsername();
     }
 
     @Override

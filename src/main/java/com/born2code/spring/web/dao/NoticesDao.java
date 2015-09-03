@@ -27,7 +27,7 @@ public class NoticesDao {
 
     public List<Notice> getNotices() {
 
-        return jdbc.query("SELECT * FROM notices, users WHERE notices.user_id = users.id AND users.enabled = true", new RowMapper<Notice>() {
+        return jdbc.query("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true", new RowMapper<Notice>() {
 
             public Notice mapRow(ResultSet rs, int rowNum) throws SQLException {
                 User user = new User();
@@ -67,7 +67,7 @@ public class NoticesDao {
 
         SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(notices.toArray());
 
-        return jdbc.batchUpdate("INSERT INTO notices (user_id, text) VALUES (:user_id, :text)", params);
+        return jdbc.batchUpdate("INSERT INTO notices (username, text) VALUES (:username, :text)", params);
     }
 
 
@@ -75,7 +75,7 @@ public class NoticesDao {
 
         BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(notice);
 
-        return jdbc.update("INSERT INTO notices (user_id, text) VALUES (:user_id, :text)", params) == 1;
+        return jdbc.update("INSERT INTO notices (username, text) VALUES (:username, :text)", params) == 1;
     }
 
     public Notice getNotice(int id) {
@@ -83,7 +83,7 @@ public class NoticesDao {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
 
-        return jdbc.queryForObject("SELECT * FROM notices, users WHERE notices.user_id = users.id AND users.enabled = true AND id = :id",
+        return jdbc.queryForObject("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true AND id = :id",
                 params, new RowMapper<Notice>() {
 
                     public Notice mapRow(ResultSet rs, int rowNum)

@@ -55,19 +55,19 @@ INSERT INTO `users` (`id`,`name`, `username`, `password`, `email`, `authority`, 
 CREATE TABLE IF NOT EXISTS `notices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` text,
-  `user_id` int(11) NOT NULL,
+  `username` varchar(60) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
+  FOREIGN KEY (`username`) REFERENCES `users`(`username`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4;
 
 --
 -- Dumping data for table `notices`
 --
 
-INSERT INTO `notices` (`id`, `text`, `user_id`) VALUES
-(1, 'Alerts dont have default classes, only base and modifier classes. A default gray alert doesnt make too much sense,.', 1),
-(2, 'So you''re required to specify a type via contextual class. Choose from success, info, warning, or danger', 1),
-(3, 'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.', 2);
+INSERT INTO `notices` (`id`, `text`, `username`) VALUES
+(1, 'Alerts dont have default classes, only base and modifier classes. A default gray alert doesnt make too much sense,.', 'fatiha'),
+(2, 'So you''re required to specify a type via contextual class. Choose from success, info, warning, or danger', 'fatiha'),
+(3, 'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.', 'lupin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
