@@ -27,24 +27,15 @@ public class NoticesDao {
 
     public List<Notice> getNotices() {
 
-        return jdbc.query("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true", new RowMapper<Notice>() {
+        return jdbc.query("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true",
+                new NoticeRowMapper());
+    }
 
-            public Notice mapRow(ResultSet rs, int rowNum) throws SQLException {
-                User user = new User();
-                user.setAuthority(rs.getString("authority"));
-                user.setEmail(rs.getString("email"));
-                user.setName(rs.getString("name"));
-                user.setUsername(rs.getString("username"));
-                user.setEnabled(true);
+    public List<Notice> getNotices(String username) {
 
-                Notice notice = new Notice();
-                notice.setId(rs.getInt("id"));
-                notice.setText(rs.getString("text"));
-                notice.setUser(user);
-                return notice;
-            }
-
-        });
+        return jdbc.query("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true AND notices.username=:username",
+                new MapSqlParameterSource("username", username),
+                new NoticeRowMapper());
     }
 
     public boolean delete(int id) {
@@ -84,26 +75,7 @@ public class NoticesDao {
         params.addValue("id", id);
 
         return jdbc.queryForObject("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true AND id = :id",
-                params, new RowMapper<Notice>() {
-
-                    public Notice mapRow(ResultSet rs, int rowNum)
-                            throws SQLException {
-                        User user = new User();
-                        user.setAuthority(rs.getString("authority"));
-                        user.setEmail(rs.getString("email"));
-                        user.setName(rs.getString("name"));
-                        user.setUsername(rs.getString("username"));
-                        user.setEnabled(true);
-
-                        Notice notice = new Notice();
-                        notice.setId(rs.getInt("id"));
-                        notice.setText(rs.getString("text"));
-                        notice.setUser(user);
-                        return notice;
-                    }
-
-                });
-
+                params, new NoticeRowMapper());
     }
 
 }
