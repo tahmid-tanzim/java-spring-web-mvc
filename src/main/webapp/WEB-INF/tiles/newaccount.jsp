@@ -2,6 +2,7 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <div class="col-md-4 col-md-offset-4">
     <h4>Create User</h4>
+    <hr/>
     <sf:form method="post" action="${pageContext.request.contextPath}/createaccount" commandName="user" id="userForm">
         <div class="form-group">
             <label for="inputname">Full Name: </label>

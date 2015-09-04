@@ -21,6 +21,7 @@
         <security:intercept-url pattern="/resources/**" access="permitAll"/>
         <security:intercept-url pattern="/createnotice" access="isAuthenticated()"/>
         <security:intercept-url pattern="/docreate" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/noticedeleted" access="isAuthenticated()"/>
         <security:intercept-url pattern="/denied" access="permitAll"/>
         <security:intercept-url pattern="/" access="permitAll"/>
         <security:intercept-url pattern="/signout" access="permitAll"/>

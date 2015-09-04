@@ -54,4 +54,8 @@
         <put-attribute name="title" value="Admin"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/tiles/noticecreated.jsp"></put-attribute>
     </definition>
+    <definition name="noticedeleted" extends="notice.base">
+        <put-attribute name="title" value="Notice Deleted"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/tiles/noticedeleted.jsp"></put-attribute>
+    </definition>
 </tiles-definitions>

@@ -53,4 +53,8 @@ public class NoticesService {
 
         return notices.get(0);
     }
+
+    public void delete(int id) {
+        noticesDao.delete(id);
+    }
 }

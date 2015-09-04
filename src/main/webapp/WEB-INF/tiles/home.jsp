@@ -28,6 +28,7 @@
             <%--<a href="${pageContext.request.contextPath}/createnotice" >Create--%>
             <%--Notices</a>--%>
             <%--</li>--%>
+
             <sec:authorize access="!isAuthenticated()">
                 <li>
                     <a href="<c:url value='/login' />">Log in</a>

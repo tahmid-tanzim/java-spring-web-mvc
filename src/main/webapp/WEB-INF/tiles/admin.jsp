@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="col-md-10 col-md-offset-1">
     <h3>Authorized users only!</h3>
+    <hr/>
     <table class="table table-striped">
         <tr>
             <th>Full Name</th>

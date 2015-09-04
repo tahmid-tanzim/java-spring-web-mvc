@@ -10,6 +10,7 @@
           method='POST'>
         <fieldset>
             <legend>Login</legend>
+            <hr/>
             <c:if test="${param.error != null && param.error == 'true'}">
                 <div class="alert alert-danger">Incorrect Username or Password provided.</div>
             </c:if>

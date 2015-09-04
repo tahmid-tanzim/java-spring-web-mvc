@@ -66,15 +66,22 @@ public class NoticesController {
     }
 
     @RequestMapping(value = "/docreate", method = RequestMethod.POST)
-    public String doCreate(Model model, @Valid Notice notice, BindingResult bindingResult, Principal principal) {
+    public String doCreate(Model model, @Valid Notice notice, BindingResult bindingResult, Principal principal, @RequestParam(value = "delete", required = false) String delete) {
         if (bindingResult.hasErrors()) {
             return "createnotice";
         }
 
-        String username = principal.getName();
-        notice.getUser().setUsername(username);
+        if(delete == null) {
+            /* Save or Update */
+            String username = principal.getName();
+            notice.getUser().setUsername(username);
+            noticesService.createOrUpdate(notice);
+            return "noticecreated";
+        } else {
+            /* Delete */
+            noticesService.delete(notice.getId());
+            return "noticedeleted";
+        }
 
-        noticesService.createOrUpdate(notice);
-        return "noticecreated";
     }
 }

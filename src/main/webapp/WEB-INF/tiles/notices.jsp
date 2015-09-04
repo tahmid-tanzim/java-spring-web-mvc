@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="col-md-10 col-md-offset-1">
+    <h4>Notices List</h4>
+    <hr/>
     <table class="table table-striped">
         <tr>
             <th width="5%">ID</th>
