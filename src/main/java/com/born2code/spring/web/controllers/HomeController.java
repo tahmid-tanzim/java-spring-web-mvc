@@ -27,12 +27,11 @@ public class HomeController {
         model.addAttribute("notices", notices);
 
         boolean hasNotice = false;
-        if(principal != null) {
+        if (principal != null) {
             hasNotice = noticesService.hasNotice(principal.getName());
         }
 
-        model.addAttribute("hasNotices", hasNotice);
-
+        model.addAttribute("hasNotice", hasNotice);
         return "home";
     }
 }

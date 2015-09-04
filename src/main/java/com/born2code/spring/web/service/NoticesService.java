@@ -22,18 +22,35 @@ public class NoticesService {
     }
 
     @Secured({"ROLE_ADMIN", "ROLE_USER"})
-    public void create(Notice notice) {
-        noticesDao.create(notice);
+    public void createOrUpdate(Notice notice) {
+        if (notice.getId() != 0) {
+            noticesDao.update(notice);
+        } else {
+            noticesDao.create(notice);
+        }
     }
 
     public boolean hasNotice(String name) {
-        if(name == null)
+        if (name == null)
             return false;
 
         List<Notice> notices = noticesDao.getNotices(name);
-        if(notices.size() == 0)
+        if (notices.size() == 0)
             return false;
 
         return true;
+    }
+
+    public Notice getNotice(String username) {
+
+        if (username == null)
+            return null;
+
+        List<Notice> notices = noticesDao.getNotices(username);
+
+        if (notices.size() == 0)
+            return null;
+
+        return notices.get(0);
     }
 }

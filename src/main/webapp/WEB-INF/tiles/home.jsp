@@ -11,34 +11,36 @@
             <c:choose>
                 <c:when test="${hasNotice}">
                     <li>
-                        <a href="<c:out value='/createnotice' />">Update current Notice</a>
+                        <a href="<c:url value='/createnotice' />">Update current Notice</a>
                     </li>
                 </c:when>
                 <c:otherwise>
-                    <h6>You don't have any Notice</h6>
+                    <li>
+                        <a href="<c:url value='/createnotice' />">Create Notices</a>
+                    </li>
                 </c:otherwise>
             </c:choose>
 
             <%--<li>--%>
-                <%--<a href="${pageContext.request.contextPath}/notices" >Show Notices</a>--%>
+            <%--<a href="${pageContext.request.contextPath}/notices" >Show Notices</a>--%>
             <%--</li>--%>
-            <li>
-                <a href="${pageContext.request.contextPath}/createnotice" >Create
-                    Notices</a>
-            </li>
+            <%--<li>--%>
+            <%--<a href="${pageContext.request.contextPath}/createnotice" >Create--%>
+            <%--Notices</a>--%>
+            <%--</li>--%>
             <sec:authorize access="!isAuthenticated()">
                 <li>
-                    <a href="<c:url value='/login' />" >Log in</a>
+                    <a href="<c:url value='/login' />">Log in</a>
                 </li>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
                 <li>
-                    <a href="<c:url value='/j_spring_security_logout' />" >Log out</a>
+                    <a href="<c:url value='/j_spring_security_logout' />">Log out</a>
                 </li>
             </sec:authorize>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <li>
-                    <a href="<c:url value='/admin' />" >Admin Page</a>
+                    <a href="<c:url value='/admin' />">Admin Page</a>
                 </li>
             </sec:authorize>
         </ul>

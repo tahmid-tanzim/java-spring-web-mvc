@@ -49,8 +49,19 @@ public class NoticesController {
     }
 
     @RequestMapping("/createnotice")
-    public String createNotice(Model model) {
-        model.addAttribute(new Notice());
+    public String createNotice(Model model, Principal principal) {
+
+        Notice notice = null;
+        if (principal != null) {
+            String username = principal.getName();
+            notice = noticesService.getNotice(username);
+        }
+
+        if (notice == null) {
+            notice = new Notice();
+        }
+
+        model.addAttribute(notice);
         return "createnotice";
     }
 
@@ -63,7 +74,7 @@ public class NoticesController {
         String username = principal.getName();
         notice.getUser().setUsername(username);
 
-        noticesService.create(notice);
+        noticesService.createOrUpdate(notice);
         return "noticecreated";
     }
 }
