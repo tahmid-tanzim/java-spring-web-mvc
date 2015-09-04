@@ -27,24 +27,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
   `username` varchar(60) NOT NULL,
   `password` varchar(80) DEFAULT NULL,
   `authority` varchar(45) DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT '1',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`,`name`, `username`, `password`, `email`, `authority`, `enabled`) VALUES
-(1, 'Kazi Fatiha', 'fatiha', 'f35c314fabec38e90b1e3fc0242d8a14fb32b3261276e282590736bf13fe699a937b47e47c3646ba', 'fatiha@gmail.com', 'ROLE_ADMIN', 1),
-(2, 'Tahmid Tanzim', 'lupin', '22b2a991a55ddb0cf9fc84ee866c5763fe6f9e4957cc9ac68687a2ec4598871a4775e51a5c348dda', 'lupin@yahoo.com', 'ROLE_USER', 1),
-(3, 'Tahmid Tahsan', 'obin', '123d04ebdd92e771308c97eb954c19585ab653c307f20690d4017d5b1cdd314fd4f892ff18d45ba7', 'obin123@live.com', 'ROLE_USER', 1);
+INSERT INTO `users` (`name`, `username`, `password`, `email`, `authority`, `enabled`) VALUES
+('Kazi Fatiha', 'fatiha', 'f35c314fabec38e90b1e3fc0242d8a14fb32b3261276e282590736bf13fe699a937b47e47c3646ba', 'fatiha@gmail.com', 'ROLE_ADMIN', 1),
+('Tahmid Tanzim', 'lupin', '22b2a991a55ddb0cf9fc84ee866c5763fe6f9e4957cc9ac68687a2ec4598871a4775e51a5c348dda', 'lupin@yahoo.com', 'ROLE_USER', 1),
+('Tahmid Tahsan', 'obin', '123d04ebdd92e771308c97eb954c19585ab653c307f20690d4017d5b1cdd314fd4f892ff18d45ba7', 'obin123@live.com', 'ROLE_USER', 1);
 
 -- --------------------------------------------------------
 

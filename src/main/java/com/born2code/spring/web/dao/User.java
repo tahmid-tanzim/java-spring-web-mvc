@@ -3,15 +3,22 @@ package com.born2code.spring.web.dao;
 import com.born2code.spring.web.validation.ValidEmail;
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "users")
 public class User {
-    private int id;
     @NotBlank(message = "Username cannot be blank.")
     @Size(min = 4, max = 15)
     @Pattern(regexp = "^\\w{4,}$", message = "Username can only consist of numbers, letters and underscore.")
+    @Id
+    @Column(name = "username")
     private String username;
 
     @NotBlank(message = "Password cannot be blank.")
@@ -31,8 +38,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, String email, boolean enabled, String authority, String name) {
-        this.id = id;
+    public User(String username, String password, String email, boolean enabled, String authority, String name) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -47,14 +53,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
