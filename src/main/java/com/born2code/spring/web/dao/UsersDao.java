@@ -7,11 +7,13 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.util.List;
 
+@Repository
 @Transactional
 @Component("usersDao")
 public class UsersDao {
@@ -34,18 +36,9 @@ public class UsersDao {
     }
 
     @Transactional
-    public boolean create(User user) {
-//        BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
-
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("username", user.getUsername());
-        params.addValue("password", passwordEncoder.encode(user.getPassword()));
-        params.addValue("email", user.getEmail());
-        params.addValue("name", user.getName());
-        params.addValue("enabled", user.isEnabled());
-        params.addValue("authority", user.getAuthority());
-        // User Table insert
-        return jdbc.update("INSERT INTO users (username, password, email, enabled, name, authority) VALUES (:username, :password, :email, :enabled, :name, :authority)", params) == 1;
+    public void create(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        session().save(user);
     }
 
     public boolean exists(String username) {

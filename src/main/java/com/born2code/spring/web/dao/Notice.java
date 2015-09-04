@@ -1,13 +1,22 @@
 package com.born2code.spring.web.dao;
 
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "notices")
 public class Notice {
+
+    @Id
+    @GeneratedValue
     private int id;
 
+    @ManyToOne
+    @JoinColumn(name = "username")
     private User user;
 
     @Size(min = 5, max = 255, message = "Text must be between 6 and 255 characters.")
+    @Column(name = "text")
     private String text;
 
     public Notice() {

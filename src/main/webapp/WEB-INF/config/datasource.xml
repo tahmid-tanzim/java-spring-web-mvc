@@ -17,11 +17,15 @@
             <property name="username" value="${jdbc.username}"></property>
             <property name="password" value="${jdbc.password}"></property>
         </bean>
+
         <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
             <property name="dataSource" ref="dataSource"></property>
             <property name="hibernateProperties">
                 <props>
                     <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                    <prop key="javax.persistence.validation.group.pre-persist">com.born2code.spring.web.dao.PersistenceValidationGroup</prop>
+                    <prop key="javax.persistence.validation.group.pre-update">com.born2code.spring.web.dao.PersistenceValidationGroup</prop>
+                    <prop key="javax.persistence.validation.group.pre-remove">com.born2code.spring.web.dao.PersistenceValidationGroup</prop>
                 </props>
             </property>
             <property name="packagesToScan">
@@ -35,5 +39,8 @@
             <property name="dataSource" ref="dataSource"></property>
         </bean>
         <tx:annotation-driven></tx:annotation-driven>
+
+        <bean id="exceptionTranslator"
+              class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>
     </beans>
 </beans>

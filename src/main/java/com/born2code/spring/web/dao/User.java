@@ -14,22 +14,23 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "users")
 public class User {
-    @NotBlank(message = "Username cannot be blank.")
-    @Size(min = 4, max = 15)
-    @Pattern(regexp = "^\\w{4,}$", message = "Username can only consist of numbers, letters and underscore.")
+    @NotBlank(message = "Username cannot be blank.", groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
+    @Size(min = 4, max = 15, groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
+    @Pattern(regexp = "^\\w{4,}$", message = "Username can only consist of numbers, letters and underscore.", groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
     @Id
     @Column(name = "username")
     private String username;
 
-    @NotBlank(message = "Password cannot be blank.")
+    @NotBlank(message = "Password cannot be blank.", groups = {FormValidationGroup.class})
     @Pattern(regexp = "^\\S+$", message = "Password cannot contain spaces.")
     @Size(min = 5, max = 15, message = "Password must be between 5 to 15 characters.")
     private String password;
 
     @NotNull
-    @ValidEmail
+    @ValidEmail(groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
     private String email;
 
+    @NotBlank(groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
     @Size(min = 4, max = 60, message = "Name must be between 5 and 60 characters.")
     private String name;
     private boolean enabled = false;
