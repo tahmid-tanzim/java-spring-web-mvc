@@ -70,6 +70,22 @@ public class NoticesDao {
         return criteria.list();
     }
 
+    public Notice getNotice(int id) {
+        /* JDBC */
+//        MapSqlParameterSource params = new MapSqlParameterSource();
+//        params.addValue("id", id);
+//
+//        return jdbc.queryForObject("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true AND id = :id",
+//                params, new NoticeRowMapper());
+
+        /* Hibernate */
+        Criteria criteria = session().createCriteria(Notice.class);
+        criteria.createAlias("user", "u");
+        criteria.add(Restrictions.eq("u.enabled", true));
+        criteria.add(Restrictions.idEq(id));
+        return (Notice) criteria.uniqueResult();
+    }
+
     public boolean delete(int id) {
 
         /* JDBC */
@@ -106,13 +122,6 @@ public class NoticesDao {
         session().save(notice);
     }
 
-    /**
-     * Merging Both Create & Update
-     */
-    public void saveOrUpdate(Notice notice) {
-        session().saveOrUpdate(notice);
-    }
-
     public int[] create(List<Notice> notices) {
 
         SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(notices.toArray());
@@ -120,21 +129,10 @@ public class NoticesDao {
         return jdbc.batchUpdate("INSERT INTO notices (username, text) VALUES (:username, :text)", params);
     }
 
-
-    public Notice getNotice(int id) {
-        /* JDBC */
-//        MapSqlParameterSource params = new MapSqlParameterSource();
-//        params.addValue("id", id);
-//
-//        return jdbc.queryForObject("SELECT * FROM notices, users WHERE notices.username = users.username AND users.enabled = true AND id = :id",
-//                params, new NoticeRowMapper());
-
-        /* Hibernate */
-        Criteria criteria = session().createCriteria(Notice.class);
-        criteria.createAlias("user", "u");
-        criteria.add(Restrictions.eq("u.enabled", true));
-        criteria.add(Restrictions.idEq(id));
-        return (Notice) criteria.uniqueResult();
+    /**
+     * Merging Both Create & Update
+     */
+    public void saveOrUpdate(Notice notice) {
+        session().saveOrUpdate(notice);
     }
-
 }

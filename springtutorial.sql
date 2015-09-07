@@ -68,6 +68,24 @@ INSERT INTO `notices` (`id`, `text`, `username`) VALUES
 (2, 'So you''re required to specify a type via contextual class. Choose from success, info, warning, or danger', 'fatiha'),
 (3, 'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.', 'lupin');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(100) NOT NULL,
+  `content` text NOT NULL,
+  `name` varchar(100) DEFAULT 'Anonymous',
+  `email` varchar(60),
+  `username` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`username`) REFERENCES `users`(`username`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
