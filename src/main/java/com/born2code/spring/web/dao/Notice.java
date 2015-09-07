@@ -15,7 +15,7 @@ public class Notice {
     @JoinColumn(name = "username")
     private User user;
 
-    @Size(min = 5, max = 255, message = "Text must be between 6 and 255 characters.")
+    @Size(min = 5, max = 255, message = "Text must be between 6 and 255 characters.", groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
     @Column(name = "text")
     private String text;
 

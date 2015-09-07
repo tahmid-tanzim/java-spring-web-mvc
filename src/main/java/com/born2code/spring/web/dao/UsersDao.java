@@ -1,7 +1,9 @@
 package com.born2code.spring.web.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.*;
@@ -42,12 +44,26 @@ public class UsersDao {
     }
 
     public boolean exists(String username) {
-        return jdbc.queryForObject("SELECT COUNT(*) FROM users WHERE username=:username", new MapSqlParameterSource("username", username), Integer.class) > 0;
+
+        /* JDBC */
+//        return jdbc.queryForObject("SELECT COUNT(*) FROM users WHERE username=:username", new MapSqlParameterSource("username", username), Integer.class) > 0;
+
+        /* Hibernate */
+        Criteria criteria = session().createCriteria(User.class);
+//        criteria.add(Restrictions.eq("username", username));
+        criteria.add(Restrictions.idEq(username));
+
+        User user = (User) criteria.uniqueResult();
+
+        return user != null;
     }
 
     @SuppressWarnings("unchecked")
     public List<User> getAllUsers() {
+        /* JDBC */
 //        return jdbc.query("SELECT * FROM users", BeanPropertyRowMapper.newInstance(User.class));
+
+        /* Hibernate */
         return session().createQuery("from User").list();
     }
 }

@@ -23,11 +23,13 @@ public class NoticesService {
 
     @Secured({"ROLE_ADMIN", "ROLE_USER"})
     public void createOrUpdate(Notice notice) {
-        if (notice.getId() != 0) {
-            noticesDao.update(notice);
-        } else {
-            noticesDao.create(notice);
-        }
+//        if (notice.getId() != 0) {
+//            noticesDao.update(notice);
+//        } else {
+//            noticesDao.create(notice);
+//        }
+
+        noticesDao.saveOrUpdate(notice);
     }
 
     public boolean hasNotice(String name) {
