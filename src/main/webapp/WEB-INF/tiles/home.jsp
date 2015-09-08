@@ -50,15 +50,16 @@
         <table class="table table-striped">
             <tr>
                 <th width="5%">ID</th>
-                <th width="15%">Name</th>
+                <th width="20%">Name</th>
                 <th width="30%">Email</th>
-                <th width="50%">Notice</th>
+                <th width="45%">Notice</th>
             </tr>
             <c:forEach var="notice" items="${notices}">
                 <tr>
                     <td><c:out value="${notice.id}"></c:out></td>
                     <td><c:out value="${notice.user.name}"></c:out></td>
-                    <td><c:out value="${notice.user.email}"></c:out></td>
+                    <td><a href="<c:url value='/message?uid=${notice.username}'></c:url>"><c:out
+                            value="${notice.user.email}"></c:out></a></td>
                     <td><c:out value="${notice.text}"></c:out></td>
                 </tr>
                 <%--<p><c:out value="${notice}"></c:out></p>--%>

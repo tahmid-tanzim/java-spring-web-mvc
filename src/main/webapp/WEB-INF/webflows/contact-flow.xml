@@ -6,7 +6,16 @@
     <var name="message" class="com.born2code.spring.web.dao.Message"></var>
 
     <view-state id="showContactForm" model="message">
-        <transition on="send" to="messageSent"></transition>
+        <on-entry>
+            <set name="message.username" value="requestParameters.uid"></set>
+        </on-entry>
+        <transition on="send" to="sendMessage"></transition>
     </view-state>
-    <view-state id="messageSent"></view-state>
+
+    <action-state id="sendMessage">
+        <evaluate expression="usersService.sendMessage(message)"></evaluate>
+        <transition to="messageSentSuccess"></transition>
+    </action-state>
+
+    <view-state id="messageSentSuccess"></view-state>
 </flow>

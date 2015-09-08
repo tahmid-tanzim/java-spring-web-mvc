@@ -62,7 +62,7 @@
         <put-attribute name="title" value="Send Message"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/tiles/contact.jsp"></put-attribute>
     </definition>
-    <definition name="messageSent" extends="notice.base">
+    <definition name="messageSentSuccess" extends="notice.base">
         <put-attribute name="title" value="Successfully! Message Send"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/tiles/messagesent.jsp"></put-attribute>
     </definition>
