@@ -4,7 +4,10 @@
     <h4>Send Message</h4>
     <hr/>
     <sf:form method="post" commandName="message">
-        <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
+
+        <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
+        <input type="hidden" name="_eventId" value="send"/>
+
         <div class="form-group">
             <label for="inputName">Your Name: </label>
             <sf:input type="text" path="name" name="name" class="form-control" id="inputName"
