@@ -35,4 +35,8 @@ public class UsersService {
         System.out.print(message);
         messagesDao.saveOrUpdate(message);
     }
+
+    public User getUser(String username) {
+        return usersDao.getUser(username);
+    }
 }

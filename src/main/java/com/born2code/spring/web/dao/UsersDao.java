@@ -66,4 +66,11 @@ public class UsersDao {
         /* Hibernate */
         return session().createQuery("from User").list();
     }
+
+    public User getUser(String username) {
+        /* Hibernate */
+        Criteria criteria = session().createCriteria(User.class);
+        criteria.add(Restrictions.idEq(username));
+        return (User) criteria.uniqueResult();
+    }
 }

@@ -47,7 +47,8 @@
     <webflow-config:flow-executor id="flowExecutor" flow-registry="flowRegistry"></webflow-config:flow-executor>
 
     <webflow-config:flow-builder-services id="flowBuilderServices"
-                                          view-factory-creator="mvcViewFactoryCreator"></webflow-config:flow-builder-services>
+                                          view-factory-creator="mvcViewFactoryCreator"
+                                          validator="contactValidator"></webflow-config:flow-builder-services>
 
     <bean id="flowHandlerAdapter" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
         <property name="flowExecutor" ref="flowExecutor"></property>
@@ -61,4 +62,6 @@
     <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
         <property name="viewResolvers" ref="tilesViewResolver"></property>
     </bean>
+
+    <bean id="contactValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"></bean>
 </beans>

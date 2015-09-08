@@ -11,14 +11,14 @@
         <div class="form-group">
             <label for="inputName">Your Name: </label>
             <sf:input type="text" path="name" name="name" class="form-control" id="inputName"
-                      placeholder="Enter Name"/>
+                      placeholder="Enter Name" value="${fromName}"/>
             <sf:errors path="name" cssClass="alert-danger"></sf:errors>
         </div>
 
         <div class="form-group">
             <label for="inputEmail">Your Email: </label>
             <sf:input type="email" path="email" name="email" class="form-control" id="inputEmail"
-                      placeholder="Enter Email"/>
+                      placeholder="Enter Email" value="${fromEmail}"/>
             <sf:errors path="email" cssClass="alert-danger"></sf:errors>
         </div>
 

@@ -10,10 +10,14 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -3614017561920472576L;
+
     @NotBlank(message = "Username cannot be blank.", groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
     @Size(min = 4, max = 15, groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
     @Pattern(regexp = "^\\w{4,}$", message = "Username can only consist of numbers, letters and underscore.", groups = {PersistenceValidationGroup.class, FormValidationGroup.class})
